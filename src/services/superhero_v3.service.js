@@ -11,12 +11,12 @@ class SuperheroService {
   async findOneSuperhero() {
     return superheroSchema.findById({ _id: superheroId });
   }
-  async editSuperhero(superheroId, superhero, real_name, super_power) {
+  async editSuperhero(superheroId, superhero_name, real_name, features) {
     return superheroSchema.findById({ _id: superheroId }).then((superhero) => {
       if (!superhero) throw Error('Super Héroe no encontrado');
       return superheroSchema.updateOne(
         { superheroId },
-        { superhero, real_name, super_power }
+        { superhero_name, real_name, features }
       );
     });
   }
